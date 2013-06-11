@@ -1,3 +1,6 @@
 /*.gem
 /.gitignore
 /*.gemspec
+*.gem
+*.gitignore
+*.gemspec
