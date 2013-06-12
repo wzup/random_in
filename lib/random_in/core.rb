@@ -7,11 +7,19 @@ Integer.class_eval do
       from = from.to_i
       to = to.to_i
 
-      # To avoid infinite loop
-      if(self.to_i >= to && !may_repeat)
-        msg = "When parameter \"repeat\" is false, parameter \"to\" cannot be less than or equal to your number."
-        raise(ArgumentError, msg, caller)
+      # 
+      # To avoid infinite loop.
+      # For negative "from" a zero appears:
+      #   3.randoms_in(-1, 1, false) <-- is ok sinse we have 0, [-1, 0, 1]
+      # 
+      if(!may_repeat)
+        msg = "The result set is going to be less than your number. When parameter \"may_repeat\" is false it is an error."
+        case true
+        when(from < 0 && ((-(from) + to) < self.to_i - 1)), (from > 0 && (self.to_i > to.to_i))
+          raise(ArgumentError, msg, caller)
+        end
       end
+
 
       # "from" has to be less than "to"
       if(from > to)
