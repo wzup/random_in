@@ -41,6 +41,7 @@ Exceptions thrown
 The plugin may throw two its own exceptions. Both of them are `ArgumentError` exeptions:
 
 1. The result set cannot be less than your number when parameter `may_repeat` if `false`:
+
 ```
 # error
 3.randoms_in(from = 1, to = 2, may_repeat = false) # rs.length == 2, but you requested 3
@@ -52,6 +53,7 @@ The plugin may throw two its own exceptions. Both of them are `ArgumentError` ex
 ```
 
 2. Parameter `from` has to be less than parameter `to`:
+
 ```
 5.randoms_in(from = 10, to = 1, may_repeat = false) <-- error
 5.randoms_in(1, 10, false) <-- no error
