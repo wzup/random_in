@@ -40,7 +40,7 @@ Exceptions thrown
 ------------------
 The plugin may throw two its own exceptions. Both of them are `ArgumentError` exeptions:
 
-1. The result set cannot be less than your number when parameter `may_repeat` if `false`:
+1. The result set cannot be less than your number when parameter `may_repeat` is `false`:
 
 ```
 # error
